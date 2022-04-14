@@ -1,6 +1,8 @@
 <!-- Keep a Changelog guide -> https://keepachangelog.com -->
 
-# spiderlog Changelog
+# Spiderlog Changelog
+
+## [Unreleased]
 
 ## [0.0.1] - 2022-04-14
 ### Added
