@@ -1,8 +1,8 @@
 # ![spiderlog](./src/main/resources/META-INF/pluginIcon.svg) <span style="color:#AB7C94">Spiderlog</span>
 
 ![Build](https://github.com/mohamead/spiderlog/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/18952-spiderlog.svg)](https://plugins.jetbrains.com/plugin/18952-spiderlog)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/18952-spiderlog.svg)](https://plugins.jetbrains.com/plugin/18952-spiderlog)
 
 
 <!-- Plugin description -->
