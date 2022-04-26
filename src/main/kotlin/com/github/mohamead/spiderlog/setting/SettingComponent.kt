@@ -1,4 +1,4 @@
-package com.github.mohamead.spiderlog.settings
+package com.github.mohamead.spiderlog.setting
 
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
@@ -7,7 +7,7 @@ import com.intellij.util.ui.FormBuilder
 import javax.swing.JPanel
 
 
-internal class SpiderlogSettingsComponent {
+internal class SettingComponent {
 
     private var mainPanel: JPanel? = null
     private val name = ComboBox<String>()

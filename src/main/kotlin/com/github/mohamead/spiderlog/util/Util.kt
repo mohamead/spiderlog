@@ -1,7 +1,7 @@
 package com.github.mohamead.spiderlog.util
 
-import com.github.mohamead.spiderlog.ui.SpiderlogToolWindowFactory
-import com.github.mohamead.spiderlog.ui.SpiderlogToolWindowPanel
+import com.github.mohamead.spiderlog.ui.ToolWindowFactory
+import com.github.mohamead.spiderlog.ui.ToolWindowPanel
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.fileChooser.FileChooser
@@ -28,14 +28,14 @@ internal fun openPath(project: Project, title: String, description: String) : Pa
     return file!!.toNioPath()
 }
 
-internal fun getProjectService(e: AnActionEvent): SpiderlogToolWindowFactory.ProjectService {
+internal fun getProjectService(e: AnActionEvent): ToolWindowFactory.ProjectService {
     return ServiceManager.getService(
         e.project!!,
-        SpiderlogToolWindowFactory.ProjectService::class.java
+        ToolWindowFactory.ProjectService::class.java
     )!!
 }
 
-internal fun getSpiderlogToolWindowPanel(e: AnActionEvent) : SpiderlogToolWindowPanel {
+internal fun getSpiderlogToolWindowPanel(e: AnActionEvent) : ToolWindowPanel {
     return getProjectService(e).spiderlogToolWindowPanel!!
 }
 

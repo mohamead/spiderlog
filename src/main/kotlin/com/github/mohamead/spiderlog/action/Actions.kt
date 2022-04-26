@@ -1,6 +1,6 @@
-package com.github.mohamead.spiderlog.actions
+package com.github.mohamead.spiderlog.action
 
-import com.github.mohamead.spiderlog.util.SpiderlogTracer
+import com.github.mohamead.spiderlog.util.LogTracer
 import com.github.mohamead.spiderlog.util.getProjectService
 import com.github.mohamead.spiderlog.util.getToolWindow
 import com.github.mohamead.spiderlog.util.getSpiderlogToolWindowPanel
@@ -20,7 +20,7 @@ internal class OpenFileAction : AnAction(), DumbAware {
         val filePath = openPath(e.project!!, "Open file", "Select any (.log)")
         if (filePath != null) {
             spiderlogToolWindowPanel.subTable.removeAll()
-            EventQueue.invokeLater { SpiderlogTracer().display(spiderlogToolWindowPanel, filePath.toFile()) }
+            EventQueue.invokeLater { LogTracer().display(spiderlogToolWindowPanel, filePath.toFile()) }
         }
     }
 }
@@ -62,7 +62,7 @@ internal class OpenWithAction : AnAction(), DumbAware {
 
         val file = e.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
         val filePath = file.toNioPath()
-        EventQueue.invokeLater { SpiderlogTracer().display(spiderlogToolWindowPanel, filePath.toFile()) }
+        EventQueue.invokeLater { LogTracer().display(spiderlogToolWindowPanel, filePath.toFile()) }
     }
 
     override fun update(e: AnActionEvent) {
@@ -79,6 +79,6 @@ internal class ForceRefreshAction : AnAction(), DumbAware {
         val defaultTableModel = model as (DefaultTableModel)
         val pathStr = defaultTableModel.getColumnName(0) ?: return
         val file = File(pathStr)
-        EventQueue.invokeLater { SpiderlogTracer().display(spiderlogToolWindowPanel, file) }
+        EventQueue.invokeLater { LogTracer().display(spiderlogToolWindowPanel, file) }
     }
 }

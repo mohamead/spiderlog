@@ -8,10 +8,10 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.Content
 import com.intellij.ui.content.ContentFactory
 
-internal class SpiderlogToolWindowFactory : ToolWindowFactory, DumbAware {
+internal class ToolWindowFactory : ToolWindowFactory, DumbAware {
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-        val spiderlogToolWindowPanel = SpiderlogToolWindowPanel(toolWindow)
+        val spiderlogToolWindowPanel = ToolWindowPanel(toolWindow)
 
         val projectService = ServiceManager.getService(project, ProjectService::class.java)
         projectService.spiderlogToolWindowPanel = spiderlogToolWindowPanel
@@ -22,7 +22,7 @@ internal class SpiderlogToolWindowFactory : ToolWindowFactory, DumbAware {
     }
 
     class ProjectService {
-        var spiderlogToolWindowPanel: SpiderlogToolWindowPanel? = null
+        var spiderlogToolWindowPanel: ToolWindowPanel? = null
     }
 
 }

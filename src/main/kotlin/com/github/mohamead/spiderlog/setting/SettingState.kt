@@ -1,4 +1,4 @@
-package com.github.mohamead.spiderlog.settings
+package com.github.mohamead.spiderlog.setting
 
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
@@ -10,21 +10,21 @@ import com.intellij.util.xmlb.XmlSerializerUtil
     name = "com.github.mohamead.spiderlog.settings.SpiderlogSettingsState",
     storages = [Storage("SdkSettingsPlugin.xml")]
 )
-internal class SpiderlogSettingsState : PersistentStateComponent<SpiderlogSettingsState> {
+internal class SettingState : PersistentStateComponent<SettingState> {
 
     var name = 0
     var style = 0
     var size = 13
 
-    fun getInstance(): SpiderlogSettingsState? {
-        return ApplicationManager.getApplication().getService(SpiderlogSettingsState::class.java)
+    fun getInstance(): SettingState? {
+        return ApplicationManager.getApplication().getService(SettingState::class.java)
     }
 
-    override fun getState(): SpiderlogSettingsState {
+    override fun getState(): SettingState {
         return this
     }
 
-    override fun loadState(state: SpiderlogSettingsState) {
+    override fun loadState(state: SettingState) {
         XmlSerializerUtil.copyBean(state, this)
     }
 

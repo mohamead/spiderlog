@@ -27,39 +27,39 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.mohamead.spiderlog.ui.SpiderlogToolWindowFactory" id="Spiderlog"
+        <toolWindow factoryClass="com.github.mohamead.spiderlog.ui.ToolWindowFactory" id="Spiderlog"
                     icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.toolWindowIcon" anchor="bottom"/>
-        <projectService serviceImplementation="com.github.mohamead.spiderlog.ui.SpiderlogToolWindowFactory$ProjectService"/>
+        <projectService serviceImplementation="com.github.mohamead.spiderlog.ui.ToolWindowFactory$ProjectService"/>
 
         <applicationConfigurable parentId="tools" id="Spiderlog.Application.Settings"
-                                 instance="com.github.mohamead.spiderlog.settings.SpiderlogSettingsConfigurable"
+                                 instance="com.github.mohamead.spiderlog.setting.SettingConfigurable"
                                  displayName="Spiderlog" />
-        <applicationService serviceImplementation="com.github.mohamead.spiderlog.settings.SpiderlogSettingsState"/>
+        <applicationService serviceImplementation="com.github.mohamead.spiderlog.setting.SettingState"/>
 
     </extensions>
 
     <actions>
-        <action id="Spiderlog.AddFile" class="com.github.mohamead.spiderlog.actions.OpenFileAction"
+        <action id="Spiderlog.AddFile" class="com.github.mohamead.spiderlog.action.OpenFileAction"
                 text="Open File"
                 icon="AllIcons.Actions.AddFile">
         </action>
-        <action id="Spiderlog.ForceRefresh" class="com.github.mohamead.spiderlog.actions.ForceRefreshAction"
+        <action id="Spiderlog.ForceRefresh" class="com.github.mohamead.spiderlog.action.ForceRefreshAction"
                 text="Force Refresh"
                 icon="AllIcons.Actions.ForceRefresh">
         </action>
-        <action id="Spiderlog.ScrollToTop" class="com.github.mohamead.spiderlog.actions.ScrollToTopAction"
+        <action id="Spiderlog.ScrollToTop" class="com.github.mohamead.spiderlog.action.ScrollToTopAction"
                 text="Scroll to Top"
                 icon="AllIcons.RunConfigurations.Scroll_up">
         </action>
-        <action id="Spiderlog.ScrollToEnd" class="com.github.mohamead.spiderlog.actions.ScrollToEndAction"
+        <action id="Spiderlog.ScrollToEnd" class="com.github.mohamead.spiderlog.action.ScrollToEndAction"
                 text="Scroll to End"
                 icon="AllIcons.RunConfigurations.Scroll_down">
         </action>
-        <action id="Spiderlog.Clear" class="com.github.mohamead.spiderlog.actions.ClearAction"
+        <action id="Spiderlog.Clear" class="com.github.mohamead.spiderlog.action.ClearAction"
                 text="Clear"
                 icon="AllIcons.Vcs.Remove">
         </action>
-        <action id="Spiderlog.OpenWith" class="com.github.mohamead.spiderlog.actions.OpenWithAction"
+        <action id="Spiderlog.OpenWith" class="com.github.mohamead.spiderlog.action.OpenWithAction"
                 text="Open with Spiderlog"
                 icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.toolWindowIcon">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>

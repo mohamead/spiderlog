@@ -7,7 +7,7 @@ import com.intellij.testFramework.fixtures.BasePlatformTestCase
 import com.intellij.util.PsiErrorElementUtil
 
 @TestDataPath("\$CONTENT_ROOT/src/test/testData")
-class SpiderlogTest : BasePlatformTestCase() {
+class SimpleTest : BasePlatformTestCase() {
 
     fun testXMLFile() {
         val psiFile = myFixture.configureByText(XmlFileType.INSTANCE, "<foo>bar</foo>")

@@ -1,6 +1,6 @@
 package com.github.mohamead.spiderlog.ui
 
-import com.github.mohamead.spiderlog.settings.SpiderlogSettingsState
+import com.github.mohamead.spiderlog.setting.SettingState
 import com.intellij.icons.AllIcons
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.ActionToolbar
@@ -18,9 +18,9 @@ import java.awt.Robot
 import java.awt.event.KeyEvent
 import javax.swing.JProgressBar
 
-internal class SpiderlogToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(false), DumbAware {
+internal class ToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(false), DumbAware {
 
-    val subPanel: SimpleToolWindowPanel = SimpleToolWindowPanel(true, true)
+    private val subPanel: SimpleToolWindowPanel = SimpleToolWindowPanel(true, true)
     val subTable: JBTable = JBTable()
     val subProgressBar = JProgressBar()
 
@@ -59,7 +59,7 @@ internal class SpiderlogToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWind
     }
 
     private fun buildFont(): Font {
-        val spiderlogSettingsState = SpiderlogSettingsState().getInstance()!!.state
+        val spiderlogSettingsState = SettingState().getInstance()!!.state
         val name = if (spiderlogSettingsState.name == 0) "Consoles" else "Segoe UI"
         val type = spiderlogSettingsState.style
         val size = spiderlogSettingsState.size
