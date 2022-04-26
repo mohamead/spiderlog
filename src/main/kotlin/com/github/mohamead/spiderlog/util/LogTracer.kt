@@ -1,6 +1,6 @@
 package com.github.mohamead.spiderlog.util
 
-import com.github.mohamead.spiderlog.ui.ToolWindowPanel
+import com.github.mohamead.spiderlog.ui.SpiderToolWindowPanel
 import java.beans.PropertyChangeEvent
 import java.io.BufferedReader
 import java.io.File
@@ -42,7 +42,7 @@ internal class LogTracer {
         }
     }
 
-    internal fun display(spiderlogToolWindowPanel: ToolWindowPanel, file: File) {
+    internal fun display(spiderlogToolWindowPanel: SpiderToolWindowPanel, file: File) {
         if (file.extension != "log") return
         val model = DefaultTableModel()
         spiderlogToolWindowPanel.subTable.model = model

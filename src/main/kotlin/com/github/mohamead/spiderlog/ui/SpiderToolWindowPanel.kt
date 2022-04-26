@@ -18,7 +18,7 @@ import java.awt.Robot
 import java.awt.event.KeyEvent
 import javax.swing.JProgressBar
 
-internal class ToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(false), DumbAware {
+internal class SpiderToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(false), DumbAware {
 
     private val subPanel: SimpleToolWindowPanel = SimpleToolWindowPanel(true, true)
     val subTable: JBTable = JBTable()

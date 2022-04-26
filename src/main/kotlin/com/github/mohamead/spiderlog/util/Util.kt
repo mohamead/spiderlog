@@ -1,7 +1,7 @@
 package com.github.mohamead.spiderlog.util
 
 import com.github.mohamead.spiderlog.ui.ToolWindowFactory
-import com.github.mohamead.spiderlog.ui.ToolWindowPanel
+import com.github.mohamead.spiderlog.ui.SpiderToolWindowPanel
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.fileChooser.FileChooser
@@ -35,7 +35,7 @@ internal fun getProjectService(e: AnActionEvent): ToolWindowFactory.ProjectServi
     )!!
 }
 
-internal fun getSpiderlogToolWindowPanel(e: AnActionEvent) : ToolWindowPanel {
+internal fun getSpiderlogToolWindowPanel(e: AnActionEvent) : SpiderToolWindowPanel {
     return getProjectService(e).spiderlogToolWindowPanel!!
 }
 
