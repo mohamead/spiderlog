@@ -1,8 +1,8 @@
-package com.github.mohamead.spiderlog.icon
+package com.github.mohamead.spiderlog.icons
 
 import com.intellij.openapi.util.IconLoader
 
-internal object Icons {
+internal object SpiderlogIcons {
 
     @JvmField
     val toolWindowIcon = IconLoader.getIcon("/icons/toolWindowIcon.svg", javaClass)

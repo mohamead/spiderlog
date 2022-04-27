@@ -2,7 +2,6 @@ package com.github.mohamead.spiderlog.setting
 
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
-import com.intellij.ui.components.JBTextField
 import com.intellij.util.ui.FormBuilder
 import javax.swing.JPanel
 
@@ -10,28 +9,32 @@ import javax.swing.JPanel
 internal class SettingComponent {
 
     private var mainPanel: JPanel? = null
-    private val name = ComboBox<String>()
-    private val style = ComboBox<String>()
-    private val size = JBTextField()
+    private val cBoxName = ComboBox<String>()
+    private val cBoxStyle = ComboBox<String>()
+    private val cBoxSize = ComboBox<Int>()
 
     init{
         buildComboBoxes()
         mainPanel = FormBuilder.createFormBuilder()
-            .addLabeledComponent(JBLabel("Font  : "), name, 1, false)
-            .addLabeledComponent(JBLabel("Style : "), style, 1, false)
-            .addLabeledComponent(JBLabel("Size  : "), size, 1, false)
+            .addLabeledComponent(JBLabel("Font  : "), cBoxName, 1, false)
+            .addLabeledComponent(JBLabel("Style : "), cBoxStyle, 1, false)
+            .addLabeledComponent(JBLabel("Size  : "), cBoxSize, 1, false)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }
 
     private fun buildComboBoxes() {
         //Font
-        name.addItem("Consoles")
-        name.addItem("Segoe UI")
+        cBoxName.addItem("Consoles")
+        cBoxName.addItem("Segoe UI")
         //Style
-        style.addItem("PLAIN")
-        style.addItem("BOLD")
-        style.addItem("ITALIC")
+        cBoxStyle.addItem("PLAIN")
+        cBoxStyle.addItem("BOLD")
+        cBoxStyle.addItem("ITALIC")
+        //Size
+        for (i in 8..26) {
+            cBoxSize.addItem(i)
+        }
     }
 
     fun getPanel(): JPanel? {
@@ -39,27 +42,27 @@ internal class SettingComponent {
     }
 
     fun getName(): Int {
-        return name.selectedIndex
+        return cBoxName.selectedIndex
     }
 
     fun setName(newName: Int) {
-        name.selectedIndex = newName
+        cBoxName.selectedIndex = newName
     }
 
     fun getStyle(): Int {
-        return style.selectedIndex
+        return cBoxStyle.selectedIndex
     }
 
     fun setStyle(newStyle: Int) {
-        style.selectedIndex = newStyle
+        cBoxStyle.selectedIndex = newStyle
     }
 
     fun getSize(): Int {
-        return size.text.toInt()
+        return cBoxSize.selectedItem as Int
     }
 
     fun setSize(newSize: Int) {
-        size.text = newSize.toString()
+        cBoxSize.selectedItem = newSize
     }
 
 }
