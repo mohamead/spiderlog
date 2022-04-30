@@ -21,9 +21,5 @@ internal class ToolWindowFactory : ToolWindowFactory, DumbAware {
         toolWindow.contentManager.addContent(content)
     }
 
-    class ProjectService {
-        lateinit var spiderlogToolWindowPanel: SpiderToolWindowPanel
-    }
-
 }
 

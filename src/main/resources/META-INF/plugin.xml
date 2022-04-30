@@ -29,7 +29,7 @@
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow factoryClass="com.github.mohamead.spiderlog.ui.ToolWindowFactory" id="Spiderlog"
                     icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.toolWindowIcon" anchor="bottom"/>
-        <projectService serviceImplementation="com.github.mohamead.spiderlog.ui.ToolWindowFactory$ProjectService"/>
+        <projectService serviceImplementation="com.github.mohamead.spiderlog.ui.ProjectService"/>
 
         <applicationConfigurable parentId="tools" id="Spiderlog.Application.Settings"
                                  instance="com.github.mohamead.spiderlog.setting.SettingConfigurable"

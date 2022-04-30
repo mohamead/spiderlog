@@ -59,10 +59,10 @@ internal class SpiderToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowP
     }
 
     private fun buildFont(): Font {
-        val settingsState = SettingState().getInstance()!!.state
-        val name = if (settingsState.name == 0) "Consoles" else "Segoe UI"
-        val type = settingsState.style
-        val size = settingsState.size
+        val state = SettingState().getInstance()!!.state
+        val name = if (state.name == 0) "Consoles" else "Segoe UI"
+        val type = state.style
+        val size = state.size
         return Font(name, type, size)
     }
 
