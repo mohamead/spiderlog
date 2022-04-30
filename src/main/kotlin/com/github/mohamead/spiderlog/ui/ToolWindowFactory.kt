@@ -22,7 +22,7 @@ internal class ToolWindowFactory : ToolWindowFactory, DumbAware {
     }
 
     class ProjectService {
-        var spiderlogToolWindowPanel: SpiderToolWindowPanel? = null
+        lateinit var spiderlogToolWindowPanel: SpiderToolWindowPanel
     }
 
 }

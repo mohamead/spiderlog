@@ -11,7 +11,7 @@ import javax.swing.table.TableModel
 
 internal class LogTracer {
 
-    private open class SpiderlogWorker(file: File, model: DefaultTableModel) : SwingWorker<TableModel?, String?>() {
+    private open class SpiderlogWorker(file: File, model: DefaultTableModel) : SwingWorker<TableModel, String>() {
         private val file: File
         private val model: DefaultTableModel
 
@@ -34,8 +34,8 @@ internal class LogTracer {
             return model
         }
 
-        override fun process(chunks: MutableList<String?>?) {
-            if (chunks == null || chunks.isEmpty()) return
+        override fun process(chunks: MutableList<String>) {
+            if (chunks.isEmpty()) return
             for (chunk in chunks) {
                 model.addRow(arrayOf(chunk))
             }

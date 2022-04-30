@@ -8,7 +8,7 @@ import javax.swing.JPanel
 
 internal class SettingComponent {
 
-    private var mainPanel: JPanel? = null
+    private val mainPanel: JPanel
     private val cBoxName = ComboBox<String>()
     private val cBoxStyle = ComboBox<String>()
     private val cBoxSize = ComboBox<Int>()
@@ -37,7 +37,7 @@ internal class SettingComponent {
         }
     }
 
-    fun getPanel(): JPanel? {
+    fun getPanel(): JPanel {
         return mainPanel
     }
 

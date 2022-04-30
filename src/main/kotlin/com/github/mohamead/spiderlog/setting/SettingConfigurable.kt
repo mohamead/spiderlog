@@ -5,38 +5,34 @@ import javax.swing.JComponent
 
 internal class SettingConfigurable : Configurable {
 
-    private var settingsComponent: SettingComponent? = null
+    private lateinit var settingComponent: SettingComponent
 
     override fun getDisplayName(): String {
         return "Spiderlog"
     }
 
-    override fun createComponent(): JComponent? {
-        settingsComponent = SettingComponent()
-        return settingsComponent!!.getPanel()
+    override fun createComponent(): JComponent {
+        settingComponent = SettingComponent()
+        return settingComponent.getPanel()
     }
 
     override fun isModified(): Boolean {
-        val settings: SettingState = SettingState().getInstance()!!
-        return (settingsComponent!!.getName() != settings.name) or (settingsComponent!!.getStyle() != settings.style) or (settingsComponent!!.getSize() != settings.size)
+        val state: SettingState = SettingState().getInstance()!!
+        return (settingComponent.getName() != state.name) or (settingComponent.getStyle() != state.style) or (settingComponent.getSize() != state.size)
     }
 
     override fun apply() {
-        val settings: SettingState = SettingState().getInstance()!!
-        settings.name = settingsComponent!!.getName()
-        settings.style = settingsComponent!!.getStyle()
-        settings.size = settingsComponent!!.getSize()
+        val state: SettingState = SettingState().getInstance()!!
+        state.name = settingComponent.getName()
+        state.style = settingComponent.getStyle()
+        state.size = settingComponent.getSize()
     }
 
     override fun reset() {
-        val settings: SettingState = SettingState().getInstance()!!
-        settingsComponent!!.setName(settings.name)
-        settingsComponent!!.setStyle(settings.style)
-        settingsComponent!!.setSize(settings.size)
-    }
-
-    override fun disposeUIResources() {
-        settingsComponent = null
+        val state: SettingState = SettingState().getInstance()!!
+        settingComponent.setName(state.name)
+        settingComponent.setStyle(state.style)
+        settingComponent.setSize(state.size)
     }
 
 }

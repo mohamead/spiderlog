@@ -1,9 +1,9 @@
 package com.github.mohamead.spiderlog.action
 
+import com.github.mohamead.spiderlog.util.*
 import com.github.mohamead.spiderlog.util.LogTracer
-import com.github.mohamead.spiderlog.util.getProjectService
-import com.github.mohamead.spiderlog.util.getToolWindow
 import com.github.mohamead.spiderlog.util.getSpiderlogToolWindowPanel
+import com.github.mohamead.spiderlog.util.getToolWindow
 import com.github.mohamead.spiderlog.util.openPath
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -15,11 +15,10 @@ import javax.swing.table.DefaultTableModel
 
 internal class OpenFileAction : AnAction(), DumbAware {
     override fun actionPerformed(e: AnActionEvent) {
-        val projectService = getProjectService(e)
-        val spiderlogToolWindowPanel = projectService.spiderlogToolWindowPanel!!
         val filePath = openPath(e.project!!, "Open file", "Select any (.log)")
         if (filePath != null) {
-            spiderlogToolWindowPanel.subTable.removeAll()
+            val spiderlogToolWindowPanel = getSpiderlogToolWindowPanel(e)
+            spiderlogToolWindowPanel.subTable.clearContent()
             EventQueue.invokeLater { LogTracer().display(spiderlogToolWindowPanel, filePath.toFile()) }
         }
     }
@@ -27,38 +26,31 @@ internal class OpenFileAction : AnAction(), DumbAware {
 
 internal class ScrollToTopAction : AnAction(), DumbAware {
     override fun actionPerformed(e: AnActionEvent) {
-        val topTable = getSpiderlogToolWindowPanel(e).subTable
-        if (topTable.rowCount == 0) return
-        val firstRow = 0
-        topTable.changeSelection(firstRow, 0, false, false)
+        val subTable = getSpiderlogToolWindowPanel(e).subTable
+        if (subTable.rowCount == 0) return
+        subTable.changeSelection(0, 0, false, false)
     }
 }
 
 internal class ScrollToEndAction : AnAction(), DumbAware {
     override fun actionPerformed(e: AnActionEvent) {
-        val topTable = getSpiderlogToolWindowPanel(e).subTable
-        if (topTable.rowCount == 0) return
-        val lastRow = topTable.rowCount - 1
-        topTable.changeSelection(lastRow, 0, false, false)
+        val subTable = getSpiderlogToolWindowPanel(e).subTable
+        if (subTable.rowCount == 0) return
+        subTable.changeSelection(subTable.rowCount - 1, 0, false, false)
     }
 }
 
 internal class ClearAction : AnAction(), DumbAware {
     override fun actionPerformed(e: AnActionEvent) {
-        val model = getSpiderlogToolWindowPanel(e).subTable.model ?: return
-        val defaultTableModel = model as (DefaultTableModel)
-        defaultTableModel.setColumnIdentifiers(arrayOf())
-        defaultTableModel.dataVector.removeAllElements()
-        defaultTableModel.fireTableDataChanged()
+        getSpiderlogToolWindowPanel(e).subTable.clearContent()
     }
 }
 
 internal class OpenWithAction : AnAction(), DumbAware {
     override fun actionPerformed(e: AnActionEvent) {
-        val spiderlogToolWindow = getToolWindow(e)
-        spiderlogToolWindow.show()
+        getToolWindow(e).show()
         val spiderlogToolWindowPanel = getSpiderlogToolWindowPanel(e)
-        spiderlogToolWindowPanel.subTable.removeAll()
+        spiderlogToolWindowPanel.subTable.clearContent()
 
         val file = e.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
         val filePath = file.toNioPath()
