@@ -4,7 +4,7 @@
 
 ## [Unreleased]
 
-## [0.0.2] - 2022-05.01
+## [0.0.2] - 2022-05-01
 ### Changed
 - Setting size component from JBTextField to ComboBox
 - Clean up misc
