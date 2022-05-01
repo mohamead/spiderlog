@@ -2,7 +2,7 @@ package com.github.mohamead.spiderlog.action
 
 import com.github.mohamead.spiderlog.util.LogTracer
 import com.github.mohamead.spiderlog.util.clearContent
-import com.github.mohamead.spiderlog.util.getSpiderlogToolWindowPanel
+import com.github.mohamead.spiderlog.util.getToolWindowPanel
 import com.github.mohamead.spiderlog.util.getToolWindow
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -14,17 +14,16 @@ internal class OpenWithAction : AnAction(), DumbAware {
 
     override fun actionPerformed(e: AnActionEvent) {
         getToolWindow(e).show()
-        val spiderlogToolWindowPanel = getSpiderlogToolWindowPanel(e)
-        spiderlogToolWindowPanel.subTable.clearContent()
+        val toolWindowPanel = getToolWindowPanel(e)
+        toolWindowPanel.table.clearContent()
 
-        val file = e.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
-        val filePath = file.toNioPath()
-        EventQueue.invokeLater { LogTracer().display(spiderlogToolWindowPanel, filePath.toFile()) }
+        val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE) ?: return
+        EventQueue.invokeLater { LogTracer().display(toolWindowPanel, virtualFile.toNioPath().toFile()) }
     }
 
     override fun update(e: AnActionEvent) {
-        val file = e.getData(CommonDataKeys.VIRTUAL_FILE)
-        val isLogFile = (file != null && !file.isDirectory && file.extension != null && file.extension == "log")
+        val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
+        val isLogFile = (virtualFile != null && !virtualFile.isDirectory && virtualFile.extension != null && virtualFile.extension == "log")
         e.presentation.isEnabledAndVisible = isLogFile
     }
 

@@ -1,8 +1,7 @@
 package com.github.mohamead.spiderlog.util
 
 import com.github.mohamead.spiderlog.ui.ProjectService
-import com.github.mohamead.spiderlog.ui.ToolWindowFactory
-import com.github.mohamead.spiderlog.ui.SpiderToolWindowPanel
+import com.github.mohamead.spiderlog.ui.ToolWindowPanel
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.fileChooser.FileChooser
@@ -11,7 +10,6 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.guessProjectDir
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowManager
-import com.intellij.ui.AnimatedIcon.Default
 import com.intellij.ui.table.JBTable
 import java.io.File
 import java.nio.file.Path
@@ -37,8 +35,8 @@ internal fun getProjectService(e: AnActionEvent): ProjectService {
     return ServiceManager.getService(e.project!!, ProjectService::class.java)!!
 }
 
-internal fun getSpiderlogToolWindowPanel(e: AnActionEvent) : SpiderToolWindowPanel {
-    return getProjectService(e).spiderlogToolWindowPanel
+internal fun getToolWindowPanel(e: AnActionEvent) : ToolWindowPanel {
+    return getProjectService(e).toolWindowPanel
 }
 
 internal fun getToolWindow(e: AnActionEvent) : ToolWindow {

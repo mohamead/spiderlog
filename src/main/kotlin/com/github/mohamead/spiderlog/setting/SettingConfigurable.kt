@@ -17,22 +17,22 @@ internal class SettingConfigurable : Configurable {
     }
 
     override fun isModified(): Boolean {
-        val state: SettingState = SettingState().getInstance()!!
-        return (settingComponent.getName() != state.name) or (settingComponent.getStyle() != state.style) or (settingComponent.getSize() != state.size)
+        val state: SettingState = SettingState().getInstance()
+        return (settingComponent.getFontName() != state.fontName) or (settingComponent.getFontStyle() != state.fontStyle) or (settingComponent.getFontSize() != state.fontSize)
     }
 
     override fun apply() {
-        val state: SettingState = SettingState().getInstance()!!
-        state.name = settingComponent.getName()
-        state.style = settingComponent.getStyle()
-        state.size = settingComponent.getSize()
+        val state: SettingState = SettingState().getInstance()
+        state.fontName = settingComponent.getFontName()
+        state.fontStyle = settingComponent.getFontStyle()
+        state.fontSize = settingComponent.getFontSize()
     }
 
     override fun reset() {
-        val state: SettingState = SettingState().getInstance()!!
-        settingComponent.setName(state.name)
-        settingComponent.setStyle(state.style)
-        settingComponent.setSize(state.size)
+        val state: SettingState = SettingState().getInstance()
+        settingComponent.setFontName(state.fontName)
+        settingComponent.setFontStyle(state.fontStyle)
+        settingComponent.setFontSize(state.fontSize)
     }
 
 }

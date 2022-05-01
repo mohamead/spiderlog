@@ -12,12 +12,12 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 )
 internal class SettingState : PersistentStateComponent<SettingState> {
 
-    var name = 0
-    var style = 0
-    var size = 13
+    var fontName: FontName = FontName.CONSOLAS
+    var fontStyle: FontStyle = FontStyle.PLAIN
+    var fontSize = 13
 
-    fun getInstance(): SettingState? {
-        return ApplicationManager.getApplication().getService(SettingState::class.java)
+    fun getInstance(): SettingState {
+        return ApplicationManager.getApplication().getService(SettingState::class.java)!!
     }
 
     override fun getState(): SettingState {

@@ -11,13 +11,13 @@ import com.intellij.ui.content.ContentFactory
 internal class ToolWindowFactory : ToolWindowFactory, DumbAware {
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-        val spiderlogToolWindowPanel = SpiderToolWindowPanel(toolWindow)
+        val toolWindowPanel = ToolWindowPanel(toolWindow)
 
         val projectService = ServiceManager.getService(project, ProjectService::class.java)
-        projectService.spiderlogToolWindowPanel = spiderlogToolWindowPanel
+        projectService.toolWindowPanel = toolWindowPanel
 
         val contentFactory: ContentFactory = ContentFactory.SERVICE.getInstance()
-        val content: Content = contentFactory.createContent(spiderlogToolWindowPanel, "", false)
+        val content: Content = contentFactory.createContent(toolWindowPanel, "", false)
         toolWindow.contentManager.addContent(content)
     }
 

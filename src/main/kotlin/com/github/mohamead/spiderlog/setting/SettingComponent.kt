@@ -9,31 +9,32 @@ import javax.swing.JPanel
 internal class SettingComponent {
 
     private val mainPanel: JPanel
-    private val cBoxName = ComboBox<String>()
-    private val cBoxStyle = ComboBox<String>()
-    private val cBoxSize = ComboBox<Int>()
+    private val cBoxFontName = ComboBox<String>()
+    private val cBoxFontStyle = ComboBox<String>()
+    private val cBoxFontSize = ComboBox<Int>()
 
     init{
         buildComboBoxes()
         mainPanel = FormBuilder.createFormBuilder()
-            .addLabeledComponent(JBLabel("Font  : "), cBoxName, 1, false)
-            .addLabeledComponent(JBLabel("Style : "), cBoxStyle, 1, false)
-            .addLabeledComponent(JBLabel("Size  : "), cBoxSize, 1, false)
+            .addLabeledComponent(JBLabel("Font  : "), cBoxFontName, 1, false)
+            .addLabeledComponent(JBLabel("Style : "), cBoxFontStyle, 1, false)
+            .addLabeledComponent(JBLabel("Size  : "), cBoxFontSize, 1, false)
             .addComponentFillVertically(JPanel(), 0)
             .panel
     }
 
     private fun buildComboBoxes() {
         //Font
-        cBoxName.addItem("Consoles")
-        cBoxName.addItem("Segoe UI")
+        for (fontName in FontName.values()) {
+            cBoxFontName.addItem(fontName.value)
+        }
         //Style
-        cBoxStyle.addItem("PLAIN")
-        cBoxStyle.addItem("BOLD")
-        cBoxStyle.addItem("ITALIC")
+        for (fontStyle in FontStyle.values()) {
+            cBoxFontStyle.addItem(fontStyle.name)
+        }
         //Size
         for (i in 8..26) {
-            cBoxSize.addItem(i)
+            cBoxFontSize.addItem(i)
         }
     }
 
@@ -41,28 +42,57 @@ internal class SettingComponent {
         return mainPanel
     }
 
-    fun getName(): Int {
-        return cBoxName.selectedIndex
+    fun getFontName(): FontName {
+        return FontName.findByIndex(cBoxFontName.selectedIndex)
     }
 
-    fun setName(newName: Int) {
-        cBoxName.selectedIndex = newName
+    fun setFontName(fontName: FontName) {
+        cBoxFontName.selectedIndex = fontName.index
     }
 
-    fun getStyle(): Int {
-        return cBoxStyle.selectedIndex
+    fun getFontStyle(): FontStyle {
+        return FontStyle.findByIndex(cBoxFontStyle.selectedIndex)
     }
 
-    fun setStyle(newStyle: Int) {
-        cBoxStyle.selectedIndex = newStyle
+    fun setFontStyle(fontStyle: FontStyle) {
+        cBoxFontStyle.selectedIndex = fontStyle.index
     }
 
-    fun getSize(): Int {
-        return cBoxSize.selectedItem as Int
+    fun getFontSize(): Int {
+        return cBoxFontSize.selectedItem as Int
     }
 
-    fun setSize(newSize: Int) {
-        cBoxSize.selectedItem = newSize
+    fun setFontSize(newSize: Int) {
+        cBoxFontSize.selectedItem = newSize
     }
 
+}
+
+internal enum class FontName(val value: String, val index: Int) {
+    CONSOLAS("Consolas", 0),
+    SEGOE_UI("Segoe UI", 1);
+
+    companion object {
+
+        internal fun findByIndex(index: Int): FontName {
+            return values().firstOrNull { it.index == index }
+                ?: throw NoSuchElementException("FontName with index '$index' not found.")
+        }
+
+    }
+}
+
+internal enum class FontStyle(val index: Int) {
+    PLAIN(0),
+    BOLD(1),
+    ITALIC(2);
+
+    companion object {
+
+        internal fun findByIndex(index: Int): FontStyle {
+            return values().firstOrNull { it.index == index }
+                ?: throw NoSuchElementException("FontStyle with index '$index' not found.")
+        }
+
+    }
 }

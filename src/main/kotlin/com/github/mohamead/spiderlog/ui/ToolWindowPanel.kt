@@ -18,11 +18,11 @@ import java.awt.Robot
 import java.awt.event.KeyEvent
 import javax.swing.JProgressBar
 
-internal class SpiderToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(false), DumbAware {
+internal class ToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(false), DumbAware {
 
-    private val subPanel: SimpleToolWindowPanel = SimpleToolWindowPanel(true, true)
-    val subTable: JBTable = JBTable()
-    val subProgressBar = JProgressBar()
+    private val panel: SimpleToolWindowPanel = SimpleToolWindowPanel(true, true)
+    val table: JBTable = JBTable()
+    val progressBar = JProgressBar()
 
     init {
         toolWindow.activate {
@@ -45,33 +45,30 @@ internal class SpiderToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowP
     }
 
     private fun buildPanel() {
-        subPanel.layout = BorderLayout()
-        subPanel.add(subProgressBar, BorderLayout.NORTH)
-        subTable.font = buildFont()
-        subTable.setShowGrid(false)
-        subTable.setDefaultEditor(Object::class.java, null)
-        subTable.tableHeader.reorderingAllowed = false
-        subTable.tableHeader.resizingAllowed = false
-        subTable.inheritsPopupMenu = true
-        subTable.componentPopupMenu = buildPopupMenu()
-        subPanel.add(JBScrollPane(subTable))
-        this.add(subPanel)
+        panel.layout = BorderLayout()
+        panel.add(progressBar, BorderLayout.NORTH)
+        table.font = buildFont()
+        table.setShowGrid(false)
+        table.setDefaultEditor(Object::class.java, null)
+        table.tableHeader.reorderingAllowed = false
+        table.tableHeader.resizingAllowed = false
+        table.inheritsPopupMenu = true
+        table.componentPopupMenu = buildPopupMenu()
+        panel.add(JBScrollPane(table))
+        this.add(panel)
     }
 
-    private fun buildFont(): Font {
-        val state = SettingState().getInstance()!!.state
-        val name = if (state.name == 0) "Consoles" else "Segoe UI"
-        val type = state.style
-        val size = state.size
-        return Font(name, type, size)
+    private fun buildFont() : Font {
+        val state = SettingState().getInstance().state
+        return Font(state.fontName.value, state.fontStyle.index, state.fontSize)
     }
 
     private fun buildPopupMenu(): JBPopupMenu {
         val popupMenu = JBPopupMenu()
         val popupMenuCopyMenuItem = JBMenuItem("Copy", AllIcons.Actions.Copy)
         popupMenuCopyMenuItem.addActionListener {
-            val selectedRow = subTable.selectedRows
-            val selectedColumns = subTable.selectedColumns
+            val selectedRow = table.selectedRows
+            val selectedColumns = table.selectedColumns
             if (selectedRow.isNotEmpty() && selectedColumns.isNotEmpty()) {
                 val robot = Robot()
                 robot.keyPress(KeyEvent.VK_CONTROL)
@@ -82,6 +79,11 @@ internal class SpiderToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowP
         }
         popupMenu.add(popupMenuCopyMenuItem)
         return popupMenu
+    }
+
+    internal fun updateUi() {
+        table.font = buildFont()
+        table.updateUI()
     }
 
 }
