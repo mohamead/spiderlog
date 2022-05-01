@@ -13,7 +13,6 @@ import com.intellij.openapi.wm.ToolWindowManager
 import com.intellij.ui.table.JBTable
 import java.io.File
 import java.nio.file.Path
-import java.util.*
 import javax.swing.table.DefaultTableModel
 
 
