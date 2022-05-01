@@ -23,7 +23,8 @@ internal class OpenWithAction : AnAction(), DumbAware {
 
     override fun update(e: AnActionEvent) {
         val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
-        val isLogFile = (virtualFile != null && !virtualFile.isDirectory && virtualFile.extension != null && virtualFile.extension == "log")
+        val isLogFile = (virtualFile != null && !virtualFile.isDirectory &&
+                         virtualFile.extension != null && virtualFile.extension == "log")
         e.presentation.isEnabledAndVisible = isLogFile
     }
 

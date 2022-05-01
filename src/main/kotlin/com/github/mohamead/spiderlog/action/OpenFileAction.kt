@@ -12,12 +12,10 @@ import java.awt.EventQueue
 internal class OpenFileAction : AnAction(), DumbAware {
 
     override fun actionPerformed(e: AnActionEvent) {
-        val filePath = openPath(e.project!!, "Open file", "Select any (.log)")
-        if (filePath != null) {
-            val toolWindowPanel = getToolWindowPanel(e)
-            toolWindowPanel.table.clearContent()
-            EventQueue.invokeLater { LogTracer().display(toolWindowPanel, filePath.toFile()) }
-        }
+        val filePath = openPath(e.project!!, "Open file", "Select any (.log)") ?: return
+        val toolWindowPanel = getToolWindowPanel(e)
+        toolWindowPanel.table.clearContent()
+        EventQueue.invokeLater { LogTracer().display(toolWindowPanel, filePath.toFile()) }
     }
 
 }

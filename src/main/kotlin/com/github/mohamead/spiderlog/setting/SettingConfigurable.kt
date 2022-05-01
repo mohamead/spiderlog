@@ -18,7 +18,9 @@ internal class SettingConfigurable : Configurable {
 
     override fun isModified(): Boolean {
         val state: SettingState = SettingState().getInstance()
-        return (settingComponent.getFontName() != state.fontName) or (settingComponent.getFontStyle() != state.fontStyle) or (settingComponent.getFontSize() != state.fontSize)
+        return (settingComponent.getFontName() != state.fontName ||
+                settingComponent.getFontStyle() != state.fontStyle ||
+                settingComponent.getFontSize() != state.fontSize)
     }
 
     override fun apply() {

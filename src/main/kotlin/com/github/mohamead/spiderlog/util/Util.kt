@@ -25,9 +25,6 @@ internal fun openPath(project: Project, title: String, description: String) : Pa
     fileDescriptor.withTreeRootVisible(true)
     fileDescriptor.withFileFilter { it.extension != null && it.extension == "log" }
     val file = FileChooser.chooseFile(fileDescriptor, project, project.guessProjectDir())
-    if (Objects.isNull(file)) {
-        return null
-    }
     return file?.toNioPath()
 }
 
