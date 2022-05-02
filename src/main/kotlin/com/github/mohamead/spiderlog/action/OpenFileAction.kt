@@ -13,7 +13,7 @@ internal class OpenFileAction : AnAction(), DumbAware {
 
     override fun actionPerformed(e: AnActionEvent) {
         val filePath = openPath(e.project!!, "Open file", "Select any (.log)") ?: return
-        val toolWindowPanel = getToolWindowPanel(e)
+        val toolWindowPanel = getToolWindowPanel(e.project!!)
         toolWindowPanel.table.clearContent()
         EventQueue.invokeLater { LogTracer().display(toolWindowPanel, filePath.toFile()) }
     }

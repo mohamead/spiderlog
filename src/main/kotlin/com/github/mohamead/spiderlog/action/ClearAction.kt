@@ -9,7 +9,7 @@ import com.intellij.openapi.project.DumbAware
 internal class ClearAction : AnAction(), DumbAware {
 
     override fun actionPerformed(e: AnActionEvent) {
-        getToolWindowPanel(e).table.clearContent()
+        getToolWindowPanel(e.project!!).table.clearContent()
     }
 
 }

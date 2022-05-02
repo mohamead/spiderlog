@@ -1,6 +1,10 @@
 package com.github.mohamead.spiderlog.setting
 
+import com.github.mohamead.spiderlog.util.getToolWindowPanel
+import com.intellij.ide.DataManager
+import com.intellij.openapi.actionSystem.DataKey
 import com.intellij.openapi.options.Configurable
+import com.intellij.openapi.project.ProjectManager
 import javax.swing.JComponent
 
 internal class SettingConfigurable : Configurable {
@@ -28,6 +32,9 @@ internal class SettingConfigurable : Configurable {
         state.fontName = settingComponent.getFontName()
         state.fontStyle = settingComponent.getFontStyle()
         state.fontSize = settingComponent.getFontSize()
+        if (isModified) {
+            update()
+        }
     }
 
     override fun reset() {
@@ -35,6 +42,12 @@ internal class SettingConfigurable : Configurable {
         settingComponent.setFontName(state.fontName)
         settingComponent.setFontStyle(state.fontStyle)
         settingComponent.setFontSize(state.fontSize)
+    }
+
+    private fun update() {
+        val project = ProjectManager.getInstance().defaultProject
+        val toolWindowPanel = getToolWindowPanel(project)
+        toolWindowPanel.updateUi()
     }
 
 }

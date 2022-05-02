@@ -2,7 +2,6 @@ package com.github.mohamead.spiderlog.util
 
 import com.github.mohamead.spiderlog.ui.ProjectService
 import com.github.mohamead.spiderlog.ui.ToolWindowPanel
-import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.fileChooser.FileChooser
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
@@ -27,16 +26,16 @@ internal fun openPath(project: Project, title: String, description: String) : Pa
     return file?.toNioPath()
 }
 
-internal fun getProjectService(e: AnActionEvent): ProjectService {
-    return ServiceManager.getService(e.project!!, ProjectService::class.java)!!
+internal fun getProjectService(project: Project): ProjectService {
+    return ServiceManager.getService(project, ProjectService::class.java)!!
 }
 
-internal fun getToolWindowPanel(e: AnActionEvent) : ToolWindowPanel {
-    return getProjectService(e).toolWindowPanel
+internal fun getToolWindowPanel(project: Project) : ToolWindowPanel {
+    return getProjectService(project).toolWindowPanel
 }
 
-internal fun getToolWindow(e: AnActionEvent) : ToolWindow {
-    return ToolWindowManager.getInstance(e.project!!).getToolWindow("Spiderlog")!!
+internal fun getToolWindow(project: Project) : ToolWindow {
+    return ToolWindowManager.getInstance(project).getToolWindow("Spiderlog")!!
 }
 
 internal fun JBTable.clearContent() {

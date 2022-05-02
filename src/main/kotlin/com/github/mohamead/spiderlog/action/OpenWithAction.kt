@@ -13,8 +13,9 @@ import java.awt.EventQueue
 internal class OpenWithAction : AnAction(), DumbAware {
 
     override fun actionPerformed(e: AnActionEvent) {
-        getToolWindow(e).show()
-        val toolWindowPanel = getToolWindowPanel(e)
+        val project = e.project!!
+        getToolWindow(project).show()
+        val toolWindowPanel = getToolWindowPanel(project)
         toolWindowPanel.table.clearContent()
 
         val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE) ?: return

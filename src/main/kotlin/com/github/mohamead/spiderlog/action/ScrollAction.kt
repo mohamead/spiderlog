@@ -4,11 +4,12 @@ import com.github.mohamead.spiderlog.util.getToolWindowPanel
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.DumbAware
+import com.intellij.openapi.project.Project
 
 internal abstract class ScrollAction : AnAction(), DumbAware {
 
-    protected fun scrollTo(e: AnActionEvent, direction: ScrollDirection) {
-        val table = getToolWindowPanel(e).table
+    protected fun scrollTo(project: Project, direction: ScrollDirection) {
+        val table = getToolWindowPanel(project).table
         val rowIndex = when(direction) {
             ScrollDirection.END -> table.rowCount - 1
             ScrollDirection.TOP -> 0
