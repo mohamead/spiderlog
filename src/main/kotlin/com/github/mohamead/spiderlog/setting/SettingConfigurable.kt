@@ -1,8 +1,6 @@
 package com.github.mohamead.spiderlog.setting
 
 import com.github.mohamead.spiderlog.util.getToolWindowPanel
-import com.intellij.ide.DataManager
-import com.intellij.openapi.actionSystem.DataKey
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.project.ProjectManager
 import javax.swing.JComponent

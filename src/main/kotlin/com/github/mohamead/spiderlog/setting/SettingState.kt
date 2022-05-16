@@ -1,5 +1,7 @@
 package com.github.mohamead.spiderlog.setting
 
+import com.github.mohamead.spiderlog.enum.FontName
+import com.github.mohamead.spiderlog.enum.FontStyle
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State

@@ -1,5 +1,7 @@
 package com.github.mohamead.spiderlog.setting
 
+import com.github.mohamead.spiderlog.enum.FontName
+import com.github.mohamead.spiderlog.enum.FontStyle
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.FormBuilder
@@ -13,7 +15,7 @@ internal class SettingComponent {
     private val cBoxFontStyle = ComboBox<String>()
     private val cBoxFontSize = ComboBox<Int>()
 
-    init{
+    init {
         buildComboBoxes()
         mainPanel = FormBuilder.createFormBuilder()
             .addLabeledComponent(JBLabel("Font  : "), cBoxFontName, 1, false)
@@ -66,33 +68,4 @@ internal class SettingComponent {
         cBoxFontSize.selectedItem = newSize
     }
 
-}
-
-internal enum class FontName(val value: String, val index: Int) {
-    CONSOLAS("Consolas", 0),
-    SEGOE_UI("Segoe UI", 1);
-
-    companion object {
-
-        internal fun findByIndex(index: Int): FontName {
-            return values().firstOrNull { it.index == index }
-                ?: throw NoSuchElementException("FontName with index '$index' not found.")
-        }
-
-    }
-}
-
-internal enum class FontStyle(val index: Int) {
-    PLAIN(0),
-    BOLD(1),
-    ITALIC(2);
-
-    companion object {
-
-        internal fun findByIndex(index: Int): FontStyle {
-            return values().firstOrNull { it.index == index }
-                ?: throw NoSuchElementException("FontStyle with index '$index' not found.")
-        }
-
-    }
 }

@@ -15,7 +15,7 @@ import java.nio.file.Path
 import javax.swing.table.DefaultTableModel
 
 
-internal fun openPath(project: Project, title: String, description: String) : Path? {
+internal fun openPath(project: Project, title: String, description: String): Path? {
     val fileDescriptor = FileChooserDescriptorFactory.createSingleFileDescriptor()
     fileDescriptor.withTitle(title)
     fileDescriptor.withDescription(description)
@@ -30,11 +30,11 @@ internal fun getProjectService(project: Project): ProjectService {
     return ServiceManager.getService(project, ProjectService::class.java)!!
 }
 
-internal fun getToolWindowPanel(project: Project) : ToolWindowPanel {
+internal fun getToolWindowPanel(project: Project): ToolWindowPanel {
     return getProjectService(project).toolWindowPanel
 }
 
-internal fun getToolWindow(project: Project) : ToolWindow {
+internal fun getToolWindow(project: Project): ToolWindow {
     return ToolWindowManager.getInstance(project).getToolWindow("Spiderlog")!!
 }
 

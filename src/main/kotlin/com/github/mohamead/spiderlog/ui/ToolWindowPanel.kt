@@ -58,7 +58,7 @@ internal class ToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(f
         this.add(panel)
     }
 
-    private fun buildFont() : Font {
+    private fun buildFont(): Font {
         val state = SettingState().getInstance().state
         return Font(state.fontName.value, state.fontStyle.index, state.fontSize)
     }
