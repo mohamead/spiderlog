@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.0.3] - 2022-05-16
+### Added
+- Update of font-name, font-type and font-size in setting view  
+
+### Changed
+- PluginUntilBuild to 221.*
+- Clean up misc
+
 ## [0.0.2] - 2022-05-01
 ### Changed
 - Setting size component from JBTextField to ComboBox
