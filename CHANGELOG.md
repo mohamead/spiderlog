@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.0.4] - 2022-05-30
+### Fix 
+- Update of settings
+
 ## [0.0.3] - 2022-05-16
 ### Changed
 - PluginUntilBuild to 221.*
