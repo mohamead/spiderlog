@@ -30,9 +30,7 @@ internal class SettingConfigurable : Configurable {
         state.fontName = settingComponent.getFontName()
         state.fontStyle = settingComponent.getFontStyle()
         state.fontSize = settingComponent.getFontSize()
-        if (isModified) {
-            update()
-        }
+        update()
     }
 
     override fun reset() {
