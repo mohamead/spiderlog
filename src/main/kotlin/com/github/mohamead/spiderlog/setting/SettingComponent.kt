@@ -1,10 +1,10 @@
 package com.github.mohamead.spiderlog.setting
 
-import com.github.mohamead.spiderlog.enum.FontName
 import com.github.mohamead.spiderlog.enum.FontStyle
 import com.intellij.openapi.ui.ComboBox
 import com.intellij.ui.components.JBLabel
 import com.intellij.util.ui.FormBuilder
+import java.awt.GraphicsEnvironment
 import javax.swing.JPanel
 
 
@@ -27,8 +27,8 @@ internal class SettingComponent {
 
     private fun buildComboBoxes() {
         //Font
-        for (fontName in FontName.values()) {
-            cBoxFontName.addItem(fontName.value)
+        for (fontName in GraphicsEnvironment.getLocalGraphicsEnvironment().availableFontFamilyNames) {
+            cBoxFontName.addItem(fontName)
         }
         //Style
         for (fontStyle in FontStyle.values()) {
@@ -44,12 +44,12 @@ internal class SettingComponent {
         return mainPanel
     }
 
-    fun getFontName(): FontName {
-        return FontName.findByIndex(cBoxFontName.selectedIndex)
+    fun getFontName(): String {
+        return cBoxFontName.model.selectedItem.toString()
     }
 
-    fun setFontName(fontName: FontName) {
-        cBoxFontName.selectedIndex = fontName.index
+    fun setFontName(fontName: String) {
+        cBoxFontName.model.selectedItem = fontName
     }
 
     fun getFontStyle(): FontStyle {

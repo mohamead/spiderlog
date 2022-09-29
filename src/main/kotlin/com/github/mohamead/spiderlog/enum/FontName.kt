@@ -2,7 +2,8 @@ package com.github.mohamead.spiderlog.enum
 
 internal enum class FontName(val value: String, val index: Int) {
     CONSOLAS("Consolas", 0),
-    SEGOE_UI("Segoe UI", 1);
+    SEGOE_UI("Segoe UI", 1),
+    JETBRAINS_MONO("Jetbrains Mono", 2);
 
     companion object {
 

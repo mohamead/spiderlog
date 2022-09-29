@@ -60,7 +60,7 @@ internal class ToolWindowPanel(toolWindow: ToolWindow) : SimpleToolWindowPanel(f
 
     private fun buildFont(): Font {
         val state = SettingState().getInstance().state
-        return Font(state.fontName.value, state.fontStyle.index, state.fontSize)
+        return Font(state.fontName, state.fontStyle.index, state.fontSize)
     }
 
     private fun buildPopupMenu(): JBPopupMenu {

@@ -1,8 +1,8 @@
 package com.github.mohamead.spiderlog.setting
 
+import com.github.mohamead.spiderlog.util.getProject
 import com.github.mohamead.spiderlog.util.getToolWindowPanel
 import com.intellij.openapi.options.Configurable
-import com.intellij.openapi.project.ProjectManager
 import javax.swing.JComponent
 
 internal class SettingConfigurable : Configurable {
@@ -41,7 +41,7 @@ internal class SettingConfigurable : Configurable {
     }
 
     private fun update() {
-        val project = ProjectManager.getInstance().defaultProject
+        val project = getProject()
         val toolWindowPanel = getToolWindowPanel(project)
         toolWindowPanel.updateUi()
     }

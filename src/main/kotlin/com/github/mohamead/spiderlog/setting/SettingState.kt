@@ -14,7 +14,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 )
 internal class SettingState : PersistentStateComponent<SettingState> {
 
-    var fontName: FontName = FontName.CONSOLAS
+    var fontName: String = FontName.JETBRAINS_MONO.value
     var fontStyle: FontStyle = FontStyle.PLAIN
     var fontSize = 13
 

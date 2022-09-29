@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.0.5] - 2022-09-29
+### Changed
+- PluginUntilBuild to 222.*
+- Clean up misc
+
+### Added 
+- Font selection to include all available font(s) on OS
+
 ## [0.0.4] - 2022-05-30
 ### Fix 
 - Update of settings
