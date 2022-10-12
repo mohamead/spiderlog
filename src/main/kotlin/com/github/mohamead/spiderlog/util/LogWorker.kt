@@ -3,6 +3,7 @@ package com.github.mohamead.spiderlog.util
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader
+import java.nio.charset.StandardCharsets
 import javax.swing.SwingWorker
 import javax.swing.table.DefaultTableModel
 import javax.swing.table.TableModel
@@ -18,7 +19,7 @@ internal class LogWorker(file: File, model: DefaultTableModel) : SwingWorker<Tab
     }
 
     override fun doInBackground(): TableModel {
-        val buffer = BufferedReader(FileReader(file))
+        val buffer = BufferedReader(FileReader(file, StandardCharsets.UTF_8))
         var line: String?
         while (buffer.readLine().also { line = it } != null) {
             if (line!!.trim().startsWith("at ")) {

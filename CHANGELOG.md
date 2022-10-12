@@ -4,6 +4,13 @@
 
 ## [Unreleased]
 
+## [0.0.6] - 2022-10-12
+### Changed
+- StandardCharsets to UTF_8 when reading file
+
+### Added
+- Support for .out and .txt file extensions 
+
 ## [0.0.5] - 2022-09-29
 ### Changed
 - PluginUntilBuild to 222.*

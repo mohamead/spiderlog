@@ -9,7 +9,6 @@ import javax.swing.table.DefaultTableModel
 internal class LogTracer {
 
     internal fun display(toolWindowPanel: ToolWindowPanel, file: File) {
-        if (file.extension != "log") return
         val model = DefaultTableModel()
         toolWindowPanel.table.model = model
         val worker = LogWorker(file, model)

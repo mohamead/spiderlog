@@ -15,6 +15,7 @@ import java.io.File
 import java.nio.file.Path
 import javax.swing.table.DefaultTableModel
 
+internal val validExtension: List<String> = listOf("log", "out", "txt")
 
 internal fun openPath(project: Project, title: String, description: String): Path? {
     val fileDescriptor = FileChooserDescriptorFactory.createSingleFileDescriptor()
@@ -22,7 +23,7 @@ internal fun openPath(project: Project, title: String, description: String): Pat
     fileDescriptor.withDescription(description)
     fileDescriptor.withShowFileSystemRoots(true)
     fileDescriptor.withTreeRootVisible(true)
-    fileDescriptor.withFileFilter { it.extension != null && it.extension == "log" }
+    fileDescriptor.withFileFilter { it.extension != null && validExtension.contains(it.extension) }
     val file = FileChooser.chooseFile(fileDescriptor, project, project.guessProjectDir())
     return file?.toNioPath()
 }

@@ -1,9 +1,11 @@
 package com.github.mohamead.spiderlog.action
 
+import com.github.mohamead.spiderlog.util.*
 import com.github.mohamead.spiderlog.util.LogTracer
 import com.github.mohamead.spiderlog.util.clearContent
 import com.github.mohamead.spiderlog.util.getToolWindow
 import com.github.mohamead.spiderlog.util.getToolWindowPanel
+import com.github.mohamead.spiderlog.util.validExtension
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
@@ -25,7 +27,7 @@ internal class OpenWithAction : AnAction(), DumbAware {
     override fun update(e: AnActionEvent) {
         val virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE)
         val isLogFile = (virtualFile != null && !virtualFile.isDirectory &&
-                virtualFile.extension != null && virtualFile.extension == "log")
+                virtualFile.extension != null && validExtension.contains(virtualFile.extension))
         e.presentation.isEnabledAndVisible = isLogFile
     }
 

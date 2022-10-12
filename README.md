@@ -7,7 +7,7 @@
 
 <!-- Plugin description -->
 A simple log file viewer plugin with the following feature(s):
-- Open any .log file
+- Open any file (log|out|txt)
 - Force refresh of file
 - Scroll to top and end of file
 - Clear file
