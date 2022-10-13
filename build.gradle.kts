@@ -14,14 +14,32 @@ plugins {
     id("org.jetbrains.changelog") version "1.3.1"
     // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
+    // Allure Plugin
+    id("io.qameta.allure") version "2.8.1"
 }
 
 group = properties("pluginGroup")
 version = properties("pluginVersion")
 
-// Configure project's dependencies
+// Configure project's repositories
 repositories {
     mavenCentral()
+}
+
+// Configure project`s dependencies
+var junitVersion = "5.8.1"
+var allureVersion = "2.19.0"
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
+    // allure
+    testImplementation("io.qameta.allure:allure-junit5:$allureVersion")
+}
+
+allure {
+    version = allureVersion
+    allureJavaVersion = allureVersion
+    autoconfigure = true
 }
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
@@ -62,6 +80,10 @@ tasks {
 
     wrapper {
         gradleVersion = properties("gradleVersion")
+    }
+
+    test {
+        useJUnitPlatform()
     }
 
     patchPluginXml {

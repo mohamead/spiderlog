@@ -1,6 +1,5 @@
 package com.github.mohamead.spiderlog.action
 
-import com.github.mohamead.spiderlog.util.*
 import com.github.mohamead.spiderlog.util.LogTracer
 import com.github.mohamead.spiderlog.util.clearContent
 import com.github.mohamead.spiderlog.util.getToolWindowPanel
