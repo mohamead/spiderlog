@@ -7,7 +7,7 @@
     <h1>A simple log file viewer plugin with the following feature(s):</h1>
     <p>
       <ul>
-        <li>Open any file (log|out|txt)</li>
+        <li>Open any .log, .out or .txt file</li>
         <li>Force refresh of file</li>
         <li>Scroll to top and end of file</li>
         <li>Clear file</li>
