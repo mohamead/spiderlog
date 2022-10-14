@@ -73,13 +73,14 @@ jobs:
       - name: Run Tests
         run: ./gradlew test
 
-      # Collect Tests Result of failed tests
-      - name: Collect Tests Result
-        if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+      # Get Allure history
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
         with:
-          name: tests-result
-          path: ${{ github.workspace }}/build/reports/tests
+          ref: gh-pages
+          path: gh-pages
 
       # Generate Allure Test Report
       - name: Generate Allure Test Report
@@ -101,6 +102,17 @@ jobs:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
+
+      # Post result linkt
+      - name: Post the link to the report
+        if: always()
+        uses: Sibz/github-status-action@v1
+        with:
+          authToken: ${{secrets.GITHUB_TOKEN}}
+          context: 'Test report'
+          state: 'success'
+          sha: ${{ github.event.pull_request.head.sha || github.sha}}
+          target_url: https://www.mohamedadrik.com/spiderlog/${{ github.run_number }}/
 
       # Cache Plugin Verifier IDEs
       - name: Setup Plugin Verifier IDEs Cache
