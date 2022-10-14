@@ -112,7 +112,7 @@ jobs:
           context: 'Test report'
           state: 'success'
           sha: ${{github.event.pull_request.head.sha || github.sha}}
-          target_url: mohamead.github.io/spiderlog/
+          target_url: https://www.mohamedadrik.com/spiderlog/${{ github.run_number }}
 
       # Cache Plugin Verifier IDEs
       - name: Setup Plugin Verifier IDEs Cache
