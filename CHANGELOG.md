@@ -4,6 +4,15 @@
 
 ## [Unreleased]
 
+## [0.0.7] - 2023-05-19
+### Changed
+- PluginSinceBuild to 222
+- PluginUntilBuild to 231.*
+- PlatformVersion to 2023.1
+- JavaVersion to 17
+- GradleVersion to 8.1
+- Clean up misc
+
 ## [0.0.6] - 2022-10-12
 ### Changed
 - StandardCharsets to UTF_8 when reading file
