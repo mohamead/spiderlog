@@ -1,5 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Fri Oct 14 09:03:13 GMT 2022","Fri Oct 14 09:03:13 GMT 2022","105","","com.github.mohamead.spiderlog.EnumTest","","com.github.mohamead.spiderlog.EnumTest","fontStyleTest","fontStyleTest()",""
-"passed","Fri Oct 14 09:03:13 GMT 2022","Fri Oct 14 09:03:13 GMT 2022","315","","com.github.mohamead.spiderlog.SpiderlogIconsTest","","com.github.mohamead.spiderlog.SpiderlogIconsTest","toolWindowIconTest","toolWindowIconTest()",""
-"passed","Fri Oct 14 09:03:13 GMT 2022","Fri Oct 14 09:03:13 GMT 2022","4","","com.github.mohamead.spiderlog.EnumTest","","com.github.mohamead.spiderlog.EnumTest","fontNameTest","fontNameTest()",""
-"passed","Fri Oct 14 09:03:12 GMT 2022","Fri Oct 14 09:03:12 GMT 2022","86","","com.github.mohamead.spiderlog.EnumTest","","com.github.mohamead.spiderlog.EnumTest","directionTest","directionTest()",""
