@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [0.0.8] - 2024-02-04
+- PluginUntilBuild to 231.*
+- PlatformVersion to 2023.3
+
 ## [0.0.7] - 2023-05-19
 ### Changed
 - PluginSinceBuild to 222
