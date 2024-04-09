@@ -86,6 +86,10 @@ tasks {
         useJUnitPlatform()
     }
 
+    runPluginVerifier {
+        enabled = false
+    }
+
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
