@@ -14,7 +14,7 @@ internal class ForceRefreshAction : AnAction(), DumbAware {
     override fun actionPerformed(e: AnActionEvent) {
         val toolWindowPanel = getToolWindowPanel(e.project!!)
         val model = toolWindowPanel.table.model ?: return
-        val defaultTableModel = model as (DefaultTableModel)
+        val defaultTableModel = model as DefaultTableModel
         val filePath = defaultTableModel.getColumnName(0) ?: return
         val file = File(filePath)
         EventQueue.invokeLater { LogTracer().display(toolWindowPanel, file) }

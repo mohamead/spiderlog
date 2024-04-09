@@ -3,27 +3,6 @@
     <id>com.github.mohamead.spiderlog</id>
     <name>Spiderlog</name>
     <vendor>Mohamed Adrik</vendor>
-    <description><![CDATA[
-    <h1>A simple log file viewer plugin with the following feature(s):</h1>
-    <p>
-      <ul>
-        <li>Open any .log, .out or .txt file</li>
-        <li>Force refresh of file</li>
-        <li>Scroll to top and end of file</li>
-        <li>Clear file</li>
-      </ul>
-    </p>
-    <p>
-      Issue tracker: <a href="https://github.com/mohamead/spiderlog/issues</a>
-    </p>
-  ]]></description>
-    <change-notes><![CDATA[
-    <p>
-    <ul>
-      <li>Compatibility with IntelliJ platform 2022.2+</li>
-    </ul>
-    </p>
-  ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">

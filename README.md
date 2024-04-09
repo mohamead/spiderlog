@@ -5,11 +5,8 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/18952-spiderlog.svg)](https://plugins.jetbrains.com/plugin/18952-spiderlog)
 
 <!-- Plugin description -->
-A simple log file viewer plugin with the following feature(s):
-- Open any .log, .out or .txt file
-- Force refresh of file
-- Scroll to top and end of file
-- Clear file
+Simple log file viewer plugin with the following feature(s): Open any .log, .out or .txt file. Force refresh of file. 
+Scroll to top and end of file. Clear file.
 <!-- Plugin description end -->
 
 ## Installation

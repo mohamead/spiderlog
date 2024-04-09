@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.0.9] - 2024-04-09
+### Fixed
+- Clear action to include removing value from ColumnIdentifiers
+
+### Changed
+- PluginUntilBuild to 241.*
+- PlatformVersion to 2024.1
+
 ## [0.0.8] - 2024-02-04
 ### Changed
 - PluginUntilBuild to 231.*
