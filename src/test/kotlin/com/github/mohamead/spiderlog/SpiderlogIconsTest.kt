@@ -9,7 +9,7 @@ class SpiderlogIconsTest {
 
     @Test
     fun toolWindowIconTest() {
-        val icon = SpiderlogIcons.toolWindowIcon
+        val icon = SpiderlogIcons.spiderToolWindowIcon
         assertAll(
             { assertNotNull(icon) }
         )

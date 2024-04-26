@@ -7,7 +7,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.DumbAware
 import javax.swing.table.DefaultTableModel
 
-internal class ClearAction : AnAction(), DumbAware {
+internal class ClearAction : SpiderlogAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val table = getToolWindowPanel(e.project!!).table

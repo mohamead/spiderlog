@@ -1,17 +1,11 @@
 package com.github.mohamead.spiderlog.action
 
-import com.github.mohamead.spiderlog.util.LogTracer
-import com.github.mohamead.spiderlog.util.clearContent
-import com.github.mohamead.spiderlog.util.getToolWindow
-import com.github.mohamead.spiderlog.util.getToolWindowPanel
-import com.github.mohamead.spiderlog.util.validExtension
-import com.intellij.openapi.actionSystem.AnAction
+import com.github.mohamead.spiderlog.util.*
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.actionSystem.CommonDataKeys
-import com.intellij.openapi.project.DumbAware
 import java.awt.EventQueue
 
-internal class OpenWithAction : AnAction(), DumbAware {
+internal class OpenWithAction : SpiderlogAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val project = e.project!!

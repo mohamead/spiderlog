@@ -6,7 +6,7 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.project.DumbAware
 import com.intellij.openapi.project.Project
 
-internal abstract class ScrollAction : AnAction(), DumbAware {
+internal abstract class ScrollAction : SpiderlogAction() {
 
     protected fun scrollTo(project: Project, direction: Direction) {
         val table = getToolWindowPanel(project).table

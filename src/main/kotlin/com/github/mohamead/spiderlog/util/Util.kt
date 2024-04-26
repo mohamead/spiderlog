@@ -1,6 +1,8 @@
 package com.github.mohamead.spiderlog.util
 
-import com.github.mohamead.spiderlog.ui.ToolWindowPanel
+import com.github.mohamead.spiderlog.ui.SpiderlogToolWindowPanel
+import com.intellij.openapi.actionSystem.ActionManager
+import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.fileChooser.FileChooser
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory
 import com.intellij.openapi.project.Project
@@ -28,8 +30,8 @@ internal fun openPath(project: Project, title: String, description: String): Pat
     return file?.toNioPath()
 }
 
-internal fun getToolWindowPanel(project: Project): ToolWindowPanel {
-    return getToolWindow(project).contentManager.getContent(0)!!.component as ToolWindowPanel
+internal fun getToolWindowPanel(project: Project): SpiderlogToolWindowPanel {
+    return getToolWindow(project).contentManager.getContent(0)!!.component as SpiderlogToolWindowPanel
 }
 
 internal fun getToolWindow(project: Project): ToolWindow {
@@ -46,6 +48,10 @@ internal fun getProject() : Project {
         }
     }
     return activeProject!!
+}
+
+internal fun getActionGroup(actionId: String): DefaultActionGroup {
+    return ActionManager.getInstance().getAction(actionId) as DefaultActionGroup
 }
 
 internal fun JBTable.clearContent() {

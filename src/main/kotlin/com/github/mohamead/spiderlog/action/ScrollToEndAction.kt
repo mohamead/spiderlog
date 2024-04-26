@@ -5,8 +5,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 
 internal class ScrollToEndAction : ScrollAction() {
 
-    override fun actionPerformed(e: AnActionEvent) {
-        scrollTo(e.project!!, Direction.END)
-    }
+    override fun actionPerformed(e: AnActionEvent) = scrollTo(e.project!!, Direction.END)
 
 }

@@ -7,14 +7,13 @@ import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.content.Content
 import com.intellij.ui.content.ContentFactory
 
-internal class ToolWindowFactory : ToolWindowFactory, DumbAware {
+internal class SpiderlogToolWindowFactory : ToolWindowFactory, DumbAware {
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-        val toolWindowPanel = ToolWindowPanel(toolWindow)
+        val spiderlogToolWindowPanel = SpiderlogToolWindowPanel()
         val contentFactory: ContentFactory = ContentFactory.getInstance()
-        val content: Content = contentFactory.createContent(toolWindowPanel, "", false)
+        val content: Content = contentFactory.createContent(spiderlogToolWindowPanel, "", false)
         toolWindow.contentManager.addContent(content)
     }
 
 }
-

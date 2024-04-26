@@ -9,7 +9,7 @@ import java.awt.EventQueue
 import java.io.File
 import javax.swing.table.DefaultTableModel
 
-internal class ForceRefreshAction : AnAction(), DumbAware {
+internal class ForceRefreshAction : SpiderlogAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val toolWindowPanel = getToolWindowPanel(e.project!!)

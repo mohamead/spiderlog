@@ -10,7 +10,7 @@ import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.DumbAware
 import java.awt.EventQueue
 
-internal class OpenFileAction : AnAction(), DumbAware {
+internal class OpenFileAction : SpiderlogAction() {
 
     override fun actionPerformed(e: AnActionEvent) {
         val extension = validExtension.joinToString("|")

@@ -6,8 +6,8 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.mohamead.spiderlog.ui.ToolWindowFactory" id="Spiderlog"
-                    icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.toolWindowIcon" anchor="bottom"/>
+        <toolWindow factoryClass="com.github.mohamead.spiderlog.ui.SpiderlogToolWindowFactory" id="Spiderlog"
+                    icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.spiderToolWindowIcon" anchor="bottom"/>
         <applicationConfigurable parentId="tools" id="Spiderlog.Application.Settings"
                                  instance="com.github.mohamead.spiderlog.setting.SettingConfigurable"
                                  displayName="Spiderlog" />
@@ -38,7 +38,7 @@
         </action>
         <action id="Spiderlog.OpenWith" class="com.github.mohamead.spiderlog.action.OpenWithAction"
                 text="Open with Spiderlog"
-                icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.toolWindowIcon">
+                icon="com.github.mohamead.spiderlog.icons.SpiderlogIcons.spiderToolWindowIcon">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </action>
 
